@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Handwritten Arabic Text Recognition</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">Practical Machine Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Handwritten Arabic Text Recognition</h1>
+        <ul class="list-unstyled">
+          <li>Merna Mustafa El-Refaie - 57</li>
+          <li>Neveen Samir Nagy - 61</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+			Handwriting text recognition is defined as the task of transforming a language represented in its spatial 
+			form of graphical marks into its symbolic Representation. It is a challenging problem due to having various 
+			kinds of handwritten characters such as digit, numeral, cursive script and symbols. 
+			Among cursive scripts, Arabic text recognition is considered as a more challenging problem, compared to handwritten Latin 
+			text recognition, due to joined writing, same character variations, a large number of words and ligatures and variations in font style.
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">KHATT Dataset</h2>
+
+        <p>
+			KHATT Dataset contains 2000 paragraphs written by 1000 writers collected from 46 sources and gathered across 18 countries.
+			The paragraphs are segmented into a total number of 6744 unique text lines divided into three disjoint sets, training (70%), validation (15%) and testing (15%).
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/dataset_details.jpg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/input1.jpg" class="img-fluid text-center">
+			<img src="resources/images/output1.jpg" class="img-fluid text-center">
+		</div>
+		<br/>
+		<br/>
+		<div class="img-container" align="center"> <!-- Block parent element -->	
+			<img src="resources/images/input2.jpg" class="img-fluid text-center">
+			<img src="resources/images/output2.jpg" class="img-fluid text-center">
+		</div>
+		<br/>
+		<br/>
+		<div class="img-container" align="center"> <!-- Block parent element -->	
+			<img src="resources/images/input3.jpg" class="img-fluid text-center">
+			<img src="resources/images/output3.jpg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+			Performance of models in term of character error rate (CER), word error rate (WER) or learning rate.
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+			<p> <b> First model on KHATT Dataset </b> </p>
+      		<img src="resources/images/state-of-the-art-results1.jpg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+		<div class="img-container" align="center"> <!-- Block parent element -->
+			<p> <b> Second model on KHATT Dataset with data augmentation techniques </b> </p>
+      		<img src="resources/images/state-of-the-art-results2.jpg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+		<div class="img-container" align="center"> <!-- Block parent element -->
+			<p> <b> Third model (HTR-Flor Model) on an English Dataset with data augmentation techniques </b> </p>
+      		<img src="resources/images/state-of-the-art-results3.jpg" class="img-fluid text-center">
+			<img src="resources/images/state-of-the-art-results3_2.jpg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+        <p>
+			We have selected HTR-Flor Model to use it as a solution for our problem as it is giving the state of 
+			the art results but on an English dataset, so we decided to try this model on our Arabic dataset.
+			<br/>
+			The model uses the Gated-CNN approach (11 convolutional layers, 5 gated included) to extract the most relevant features 
+			from the images and a recurrent block contains 2 BGRU alternated by a dense layer, and finally, the model has a dense layer with 
+			a size equal to the charset size + 1 (CTC blank symbol).
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/original_model.jpg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+
+		<h5 class="mt-5">Update #1: Made changes in the model architecture </h5>
+		<p>
+			When we tried the HTR-Flor model, we had got a very low accuracy. After some search and tries, 
+			we decided to simplify the model and change it as shown below with keeping the same data augmentation techniques used in the model.
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/update1.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+		<h5 class="mt-5">Update #2: Added attention layer to the model (Model 1)</h5>
+		<p>
+			
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/update2.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+	
+		<h5 class="mt-5">Update #3: Tuned some hyperparameters & Change in model architecture </h5>
+		<p>
+			<ul>
+			  <li>Increased number of filters and number of units for each layer (Model 2)</li>
+			  <li>Decresed number of filters and number of units for each layer (Model 3)</li>
+			  <li>Increased batch size (Model 4)</li> 
+			  <li>Added CNN layer (Model 5)</li>
+			  <li>Added CNN layer + Attention layer (Model 6)</li>
+			</ul>
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    
+	
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+			Best accuracy we got was after simplify the HTR-Flor model architecture with keeping the same data augmentation techniques as we 
+			acheived 18.93% CER, which is better than the state of art on KHATT Dataset (19.98% CER).
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/results.png" class="img-fluid text-center">
+    	</div>
+        
+	<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+		<img src="resources/images/Comparisons.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+	 	<ul>
+		  <li>Programming framework: Tensorflow with keras API</li>
+		  <li>Training hardware: Google Colaboratory</li>
+		  <li>Training time for proposed model: 3 hours</li>
+		  <li>Training time for final model: 1.5 hours</li>
+		  <li>Fine-tuning time: around 10 hours</li>
+		  <li>Number of epochs: 100 epochs with early stopping</li>
+		  <li>Time per epoch: 2 mins for proposed model and 1 min for final model</li>
+		</ul> 
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+       <ul> 
+	    <li> <b> Conclusions </b>
+	    <ul>
+		  <li>Data augmentation techniques make the performance better and increase the recognition rate </li>
+		  <li>Tuning hyperparameters may lead to underfitting or get more better result</li>
+		  <li>The proposed model doesn’t give better result on our Atabic dataset as excepted</li>
+		  <li>Less deep model may lead to better result than deeper </li>
+		  <li>Fine-tuning time: around 10 hours</li>
+		  <li>Our final result:18.93% for CER which means 81.07% for Recognition Rate </li>
+		</ul>
+        </li>
+
+		<li> <b> Future Work </b>
+	    <ul>
+		  <li>Increase dataset by mixing it with other Arabic datasets. </li>
+		  <li>Tune more hyperparameters to get better performance</li>
+		  <li>Try to change input to the model to be a paragraph instead of a line.</li>
+		</ul>
+        </li>
+	</ul> 		
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+		<ol>
+		  <li><a href="https://ieeexplore.ieee.org/abstract/document/8270309">KHATT: A Deep Learning Benchmark on Arabic Script </a></li>
+		  <li><a href="https://iajit.org/PDF/May%202020,%20No.%203/16418.pdf">A Deep Learning based Arabic Script Recognition  System: Benchmark on KHAT</a></li>
+		  <li><a href="https://ieeexplore.ieee.org/abstract/document/9266005">HTR-Flor: A Deep Learning System for Offline Handwritten Text Recognition</a></li>
+		  <li><a href="http://khatt.ideas2serve.net/KHATTAgreement.php">Dataset URL</a></li>
+		</ol> 
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
